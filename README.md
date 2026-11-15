@@ -10,7 +10,7 @@
 
 **promptguard** scans text and files for common prompt-injection tricks, so you can check untrusted content (web pages, emails, uploaded docs) before feeding it to an LLM or agent.
 
-## What it catches
+## 📌 What it catches
 
 | Severity | Examples |
 |----------|----------|
@@ -18,7 +18,7 @@
 | med | fake `<system>` tags, "developer mode", "do not tell the user", long base64 blobs |
 | low | invisible Unicode characters (zero-width, bidi override) |
 
-## Usage
+## 🚀 Usage
 
 ```bash
 python promptguard.py email.txt page.md      # scan files
@@ -34,7 +34,7 @@ doc.txt  risk score: 7
   MED  line 9    fake-system-tag        '<system>'
 ```
 
-## Use it in CI
+## 📌 Use it in CI
 
 Exit code is `1` when any **high** severity finding exists, `0` otherwise.
 
@@ -42,14 +42,14 @@ Exit code is `1` when any **high** severity finding exists, `0` otherwise.
 python promptguard.py inputs/*.txt || echo "suspicious content found"
 ```
 
-## Honest limits
+## 📌 Honest limits
 
 This is a fast pattern matcher, not a guarantee. Attackers can rephrase. Treat it as a cheap first filter, and keep real defenses (least privilege, human approval for risky actions) in place.
 
-## Add your own rules
+## 📌 Add your own rules
 
 Edit the `RULES` list at the top of `promptguard.py`: `(severity, name, regex)`.
 
-## License
+## 📄 License
 
 MIT
